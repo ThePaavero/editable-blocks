@@ -13,9 +13,15 @@ $editableBlocks->setAccess(true);
 </head>
 <body>
 <div class='content'>
-    <?php $editableBlocks->render([
-        'id' => 'example-block'
-    ]) ?>
+    <div class='content-a'>
+        <?php $editableBlocks->render(['id' => 'example-block']) ?>
+    </div>
+    <!-- content-a -->
+
+    <div class='content-b'>
+        <?php $editableBlocks->render('example-block-b') ?>
+    </div>
+    <!-- content-b -->
 </div>
 <!-- content -->
 </body>

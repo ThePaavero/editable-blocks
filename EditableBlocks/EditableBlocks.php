@@ -37,10 +37,23 @@ class EditableBlocks
 
     public function render($args)
     {
+        if (is_string($args))
+        {
+            $args = [
+                'id' => $args
+            ];
+        }
+
         $id = $args['id'];
 
         $echo = isset($args['echo']) ? $args['echo'] : true;
         $element = isset($args['element']) ? $args['element'] : 'div';
+
+        if ( ! $this->validateIdString($id))
+        {
+            $output = '<div class="editable-blocks error-message">Invalid ID, it has to be alphanumeric with dashes only!</div>';
+            return $echo ? print($output) : $output;
+        }
 
         $blockRow = EditableBlocksModel::find($id);
 
@@ -52,12 +65,6 @@ class EditableBlocks
             $blockRow->content = '---';
             $blockRow->save();
             return $this->render($args);
-        }
-
-        if ( ! $this->validateIdString($id))
-        {
-            $output = '<div class="editable-blocks error-message">Invalid ID, it has to be alphanumeric with dashes only!</div>';
-            return $echo ? print($output) : $output;
         }
 
         if ($this->accessGranted)
