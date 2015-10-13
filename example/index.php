@@ -10,6 +10,7 @@ $editableBlocks->setAccess(true);
 <head>
     <meta charset='utf-8'>
     <title>Example</title>
+    <?php $editableBlocks->assets('assets/editable_blocks'); ?>
 </head>
 <body>
 <div class='content'>

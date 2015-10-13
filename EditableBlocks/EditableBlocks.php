@@ -88,6 +88,17 @@ class EditableBlocks
         return $output;
     }
 
+    public function assets($baseDir = '')
+    {
+        $baseDir = rtrim(trim($baseDir), '/') . '/';
+
+        $output = '';
+        $output .= '<link rel="stylesheet" href="' . $baseDir . 'css/styles.css">' . "\n    ";
+        $output .= '<script src="' . $baseDir . 'js/main.js"></script>';
+
+        echo $output;
+    }
+
     private function validateIdString($str)
     {
         return preg_match('/^[A-Za-z0-9_~\-!@#\$%\^&*\(\)]+$/', $str);
