@@ -54,7 +54,6 @@ window.EditableBlocks = function (config) {
 
     this.init = function () {
         console.log('EditableBlocks initing...');
-        console.log(config);
 
         this.bootUpBlocks();
         this.doBlockListeners();
