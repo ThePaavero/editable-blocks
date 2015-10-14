@@ -19,6 +19,19 @@ Lets you bolt-on some simple content editing logic.
  * Download and copy the files somewhere
  * Run ```$ composer install``` in the library's directory
  * Run ```$ php publishAssets.php```, this will copy the frontend files (asks for path)
+ * Create a controller somewhere under your public docroot
+
+#### Controller example:
+```php
+<?php
+
+require '../EditableBlocks/EditableBlocks.php';
+
+$editableBlocks = new \EditableBlocks\EditableBlocks();
+$editableBlocks->setAccess(true); // Do this only if user is logged in as admin in your own project!
+
+$editableBlocks->controller();
+```
 
 ### Usage
 See example/index.php for a complete dummy file.
