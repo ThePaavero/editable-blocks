@@ -125,7 +125,12 @@ class EditableBlocks
 
     public function controller()
     {
-        return ':D:D:D';
+        $contentId = (int) $_POST['contentId'];
+        $contentString = $_POST['content'];
+
+        // @todo ALL!
+
+        echo $contentString . '!';
     }
 
     private function validateIdString($str)
