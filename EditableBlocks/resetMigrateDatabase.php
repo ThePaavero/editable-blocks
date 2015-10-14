@@ -21,5 +21,7 @@ $sql = 'CREATE TABLE [blocks] (
 
 CREATE INDEX [pk] ON [blocks] ([id]);';
 
+echo 'Creating table(s)...' . PHP_EOL;
 $db = new PDO('sqlite:' . $databasePath);
 $db->exec($sql);
+echo 'All done!' . PHP_EOL . PHP_EOL;
