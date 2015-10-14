@@ -30,7 +30,7 @@ In your controller (or equivalent):
 require '../EditableBlocks/EditableBlocks.php';
 
 $editableBlocks = new \EditableBlocks\EditableBlocks();
-$editableBlocks->setAccess(true); // This is where you check for auth!
+$editableBlocks->setAccess(true); // Do this only if user is logged in as admin in your own project!
 $editableBlocks->setAssetsUrl('assets/editable_blocks');
 $editableBlocks->setBackendEndpointUrl('/editable_blocks_controller.php');
 ```
@@ -39,7 +39,7 @@ In your head view (or equivalent):
 <?php $editableBlocks->assets(); ?>
 ```
 In your content view (or equivalent):
-```html
+```php
 <div class='content'>
     <div class='content-a'>
         <?php $editableBlocks->render(['id' => 'example-block']) /* Config array as argument */ ?>
