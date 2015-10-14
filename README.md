@@ -7,12 +7,13 @@ Lets you bolt-on some simple content editing logic.
 
 ### What it will do for you:
 
- * JS for the front end
- * The complete back end logic
+ * Take care of the content blocks, both front and back end
 
 ### What it will **not** do for you:
  * Take care of auth
  * Provide fancy UI (no save or history, no rich editor libraries)
+
+![alt text](http://i.imgur.com/SE1l5Op.gif "Demo")
 
 ### Installation
  * Download and copy the files somewhere
