@@ -71,7 +71,7 @@ class EditableBlocks
 
         if ($this->accessGranted)
         {
-            $output = '<' . $element . ' data-editable-blocks-content-id="' . $blockRow->id . '">';
+            $output = '<' . $element . ' contenteditable class="editable-blocks-content-block" data-editable-blocks-content-id="' . $blockRow->id . '">';
         }
         else
         {
