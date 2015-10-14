@@ -125,12 +125,21 @@ class EditableBlocks
 
     public function controller()
     {
-        $contentId = (int) $_POST['contentId'];
+        $contentId = $_POST['contentId'];
         $contentString = $_POST['content'];
 
-        // @todo ALL!
+        $contentRow = EditableBlocksModel::find($contentId);
 
-        echo $contentString . '!';
+        if (is_null($contentRow))
+        {
+            echo 'ROW NOT FOUND! (' . $contentId . ')';
+            return;
+        }
+
+        $contentRow->content = $contentString;
+        $contentRow->save();
+
+        echo $contentString;
     }
 
     private function validateIdString($str)

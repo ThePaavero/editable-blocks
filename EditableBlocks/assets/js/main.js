@@ -18,11 +18,13 @@ window.EditableBlocks = function (config) {
         var currentContent = contentBlockElement.html();
         var originalContent = contentBlockElement.data('content-on-load');
         if (currentContent != originalContent) {
-            var contentId = contentBlockElement.data('data-editable-blocks-content-id');
+            var contentId = contentBlockElement.data('editable-blocks-content-id');
+            contentBlockElement.addClass('editable-block-busy');
             this.sendUpdatedBlockContentToServer(contentId, currentContent, function (returnedContentString) {
                 console.log('Saved!');
                 contentBlockElement.html(returnedContentString);
                 contentBlockElement.data('content-on-load', returnedContentString);
+                contentBlockElement.removeClass('editable-block-busy');
             });
         }
     };
