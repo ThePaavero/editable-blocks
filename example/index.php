@@ -4,13 +4,15 @@ require '../EditableBlocks/EditableBlocks.php';
 
 $editableBlocks = new \EditableBlocks\EditableBlocks();
 $editableBlocks->setAccess(true);
+$editableBlocks->setAssetsUrl('assets/editable_blocks');
+$editableBlocks->setBackendEndpointUrl('/editable_blocks_controller.php');
 
 ?><!doctype html>
 <html>
 <head>
     <meta charset='utf-8'>
     <title>Example</title>
-    <?php $editableBlocks->assets('assets/editable_blocks'); ?>
+    <?php $editableBlocks->assets(); ?>
 </head>
 <body>
 <div class='content'>

@@ -12,6 +12,8 @@ class EditableBlocks
     public $accessGranted;
     public $capsule;
     public $idMaxLength;
+    public $assetsBaseUrl;
+    public $backendEndpointUrl;
 
     public function __construct()
     {
@@ -88,13 +90,31 @@ class EditableBlocks
         return $output;
     }
 
-    public function assets($baseDir = '')
+    public function setAssetsUrl($url)
     {
-        $baseDir = rtrim(trim($baseDir), '/') . '/';
+        $this->assetsBaseUrl = rtrim(trim($url), '/') . '/';
+    }
+
+    public function setBackendEndpointUrl($url)
+    {
+        $this->backendEndpointUrl = $url;
+    }
+
+    public function assets()
+    {
+        if ( ! $this->accessGranted)
+        {
+            return '';
+        }
+
+        if ( ! isset($this->assetsBaseUrl))
+        {
+            die('You need to call setAssetsUrl()!');
+        }
 
         $output = '';
-        $output .= '<link rel="stylesheet" href="' . $baseDir . 'css/styles.css">' . "\n    ";
-        $output .= '<script src="' . $baseDir . 'js/main.js"></script>';
+        $output .= '<link rel="stylesheet" href="' . $this->assetsBaseUrl . 'css/styles.css">' . "\n    ";
+        $output .= '<script src="' . $this->assetsBaseUrl . 'js/main.js"></script>';
 
         echo $output;
     }

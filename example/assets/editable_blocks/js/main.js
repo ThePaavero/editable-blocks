@@ -1,3 +1,10 @@
+window.EditableBlocks = function () {
+    this.init = function () {
+        console.log('EditableBlocks initing...');
+    };
+};
+
 (function () {
-    console.log('EditableBlocks here!');
+    var eb = new window.EditableBlocks();
+    eb.init();
 })();
