@@ -12,6 +12,7 @@ $editableBlocks->setBackendEndpointUrl('/editable_blocks_controller.php');
 <head>
     <meta charset='utf-8'>
     <title>Example</title>
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
     <?php $editableBlocks->assets(); ?>
 </head>
 <body>

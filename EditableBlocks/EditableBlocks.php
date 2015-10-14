@@ -53,7 +53,7 @@ class EditableBlocks
 
         if ( ! $this->validateIdString($id))
         {
-            $output = '<div class="editable-blocks error-message">Invalid ID, it has to be alphanumeric with dashes only!</div>';
+            $output = '<div class="editable-blocks error-message">Invalid ID, it has to be under ' . $this->idMaxLength . ' characters long and alphanumeric with dashes only!</div>';
             return $echo ? print($output) : $output;
         }
 
@@ -112,15 +112,29 @@ class EditableBlocks
             die('You need to call setAssetsUrl()!');
         }
 
-        $output = '';
+        $myPublicJavascriptConfig = json_encode([
+            'controllerEndpointUrl' => $this->backendEndpointUrl
+        ]);
+
+        $output = '<script>window.EditableBlocksConfig = ' . $myPublicJavascriptConfig . '</script>';
         $output .= '<link rel="stylesheet" href="' . $this->assetsBaseUrl . 'css/styles.css">' . "\n    ";
         $output .= '<script src="' . $this->assetsBaseUrl . 'js/main.js"></script>';
 
         echo $output;
     }
 
+    public function controller()
+    {
+        return ':D:D:D';
+    }
+
     private function validateIdString($str)
     {
+        if (strlen($str) > $this->idMaxLength)
+        {
+            return false;
+        }
+
         return preg_match('/^[A-Za-z0-9_~\-!@#\$%\^&*\(\)]+$/', $str);
     }
 }
