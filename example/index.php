@@ -3,7 +3,7 @@
 require '../EditableBlocks/EditableBlocks.php';
 
 $editableBlocks = new \EditableBlocks\EditableBlocks();
-$editableBlocks->setAccess(true);
+$editableBlocks->setAccess(true); // This is where you check for auth!
 $editableBlocks->setAssetsUrl('assets/editable_blocks');
 $editableBlocks->setBackendEndpointUrl('/editable_blocks_controller.php');
 
@@ -18,12 +18,12 @@ $editableBlocks->setBackendEndpointUrl('/editable_blocks_controller.php');
 <body>
 <div class='content'>
     <div class='content-a'>
-        <?php $editableBlocks->render(['id' => 'example-block']) ?>
+        <?php $editableBlocks->render(['id' => 'example-block']) /* Config array as argument */ ?>
     </div>
     <!-- content-a -->
 
     <div class='content-b'>
-        <?php $editableBlocks->render('example-block-b') ?>
+        <?php $editableBlocks->render('example-block-b') /* ID string as argument */ ?>
     </div>
     <!-- content-b -->
 </div>
