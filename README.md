@@ -19,6 +19,7 @@ Lets you bolt-on some simple content editing logic.
  * Download and copy the files somewhere
  * Run ```$ composer install``` in the library's directory
  * Run ```$ php publishAssets.php```, this will copy the frontend files (asks for path)
+ * Run ```$ php resetMigrateDatabase.php```, this will create a SQLite database and necessary table(s) **NOTE:** This will nuke any existing database!
  * Create a controller somewhere under your public docroot
 
 #### Controller example:
